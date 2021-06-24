@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Card = ({album}) => {
+const Card = ({album, fav}) => {
     const router = useHistory();
 
     const goToPage = (id) => {
@@ -10,12 +10,22 @@ const Card = ({album}) => {
 
     return (
         <div>
-            <div className='cards'>
+            {album&&album ? (
+                <div className='cards'>
                 <div className='card-container' onClick={() => goToPage(album.id)}>
                     <img src={album.thumbnailUrl}/>
                     <p className='card-text'>{album.title}</p>                  
                 </div>
-            </div>
+                </div>
+            ) : (
+                <div className='cards'>
+                <div className='card-container' onClick={() => goToPage(fav.id)}>
+                    <img src={fav.thumbnailUrl}/>
+                    <p className='card-text'>{fav.title}</p>                  
+                </div>
+                </div>
+            )}
+            
         </div>
     )
 }

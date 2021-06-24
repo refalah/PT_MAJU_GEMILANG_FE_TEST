@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from "react-router-dom";
-import {ContextProvider} from './favContext'
+import {Context} from './favContext';
 
 function Details() {
-    const [state, dispatch] = useContext(ContextProvider)
+    const [state, dispatch] = useContext(Context);
 
     const params = useParams();
 

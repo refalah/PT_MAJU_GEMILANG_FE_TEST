@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react';
 import Card from './Card';
-import {ContextProvider} from './favContext'
+import {Context} from './favContext'
 
 function Favorite() {
 
-    const [state, dispatch] = useContext(ContextProvider)
+    const [state, dispatch] = useContext(Context)
     const [post, setPost] = useState([]);
     const [favs, setFavs] = useState([]);
 
@@ -21,13 +21,15 @@ function Favorite() {
       viewData();
     }, []);
 
+    console.log(state.favs)
+
     return (
         <div>
             <div className='cardss'>
                   <div className='row'>
                     {state.favs.map(p => (
                       <div className='col' key={p.id}>
-                        <Card album={p}/>  
+                        <Card fav={p}/>  
                       </div>        
                     ))}              
                   </div>
