@@ -12,6 +12,7 @@ function Details() {
     // const [favs, setFavs] = useState([]);
 
     const addFav = (p) => {
+        const add = [{id: params.id}]
         dispatch({
             type: "ADD_FAVORITES",
             payload: {

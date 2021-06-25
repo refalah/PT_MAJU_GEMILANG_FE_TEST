@@ -13,12 +13,15 @@ const reducer = (state, action) => {
         case "ADD_FAVORITES":
             return {
                 ...state,
-                favs: [...state.favs, {...payload.post}]
+                favs: [...state.favs, {...payload.p}]
             };
-        case "CLOSELOGIN":
+        case "REMOVE_FAVORITES":
+            const filterFavs = state.favs.filter(
+                fav => fav.id !== payload.p.id
+            )
             return {
                 ...state,
-                isVisibleLogin: false
+                favs: filterFavs
             };
         
         default:

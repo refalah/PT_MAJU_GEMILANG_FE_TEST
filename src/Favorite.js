@@ -8,9 +8,6 @@ function Favorite() {
     const [post, setPost] = useState([]);
     const [favs, setFavs] = useState([]);
 
-    const removeFav = (p) => {
-        setFavs([...favs, p])
-    }
 
     const viewData = () => {
         fetch('https://jsonplaceholder.typicode.com/albums/1/photos')
@@ -25,6 +22,8 @@ function Favorite() {
 
     return (
         <div>
+          <div className='container'>
+            <h2 style={{textAlign: 'center', marginBottom: 50}}>Click to Remove</h2>
             <div className='cardss'>
                   <div className='row'>
                     {state.favs.map(p => (
@@ -34,6 +33,7 @@ function Favorite() {
                     ))}              
                   </div>
               </div>
+            </div>
         </div>
     )
 }
